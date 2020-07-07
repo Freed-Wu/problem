@@ -1,0 +1,231 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Template for homework of Introduction to Machine Learning.
+%
+%  Fill in your name, lecture number, lecture date and body
+%  of homework as indicated below.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[11pt,letter,notitlepage]{article}
+%Mise en page
+\usepackage[left=2cm, right=2cm, lines=45, top=0.8in, bottom=0.7in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{bm}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\footrulewidth}{1.5pt}
+\newcommand\Loadedframemethod{TikZ}
+\usepackage[framemethod=\Loadedframemethod]{mdframed}
+
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{mathrsfs}
+\usepackage{afterpage}
+
+\setlength{\topmargin}{0pt}
+\setlength{\textheight}{9in}
+\setlength{\headheight}{0pt}
+
+\setlength{\oddsidemargin}{0.25in}
+%\setlength{\evensidemargin}{0.25in}
+\setlength{\textwidth}{6in}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Define math operator %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\argmin}{\bf argmin}
+\DeclareMathOperator*{\relint}{\bf relint\,}
+\DeclareMathOperator*{\dom}{\bf dom\,}
+\DeclareMathOperator*{\intp}{\bf int\,}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Define the Exercise environment %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\mdtheorem[
+  topline=false,
+  rightline=false,
+  leftline=false,
+  bottomline=false,
+  leftmargin=-10,
+  rightmargin=-10
+]{exercise}{\textbf{Exercise}}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% End of the Exercise environment %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Define the Problem environment %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\mdtheorem[
+  topline=false,
+  rightline=false,
+  leftline=false,
+  bottomline=false,
+  leftmargin=-10,
+  rightmargin=-10
+]{problem}{\textbf{Problem}}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% End of the Exercise environment %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Define the Solution Environment %%
+%%%%%%%%%%%%%%%%%%%%%%%
+\declaretheoremstyle%
+[
+  spaceabove=0pt,
+  spacebelow=0pt,
+  headfont=\normalfont\bfseries,
+  notefont=\mdseries,
+  notebraces={(}{)},
+  headpunct={:\quad},
+  headindent={},
+  postheadspace={ },
+  postheadspace=4pt,
+  bodyfont=\normalfont,
+  qed=$\blacksquare$,
+  preheadhook={\begin{mdframed}[style=myframedstyle]},
+  postfoothook=\end{mdframed},
+]{mystyle}
+
+\declaretheorem[style=mystyle,title=Comment,numbered=no]{comment}
+\mdfdefinestyle{myframedstyle}{%
+  topline=false,
+  rightline=false,
+  leftline=false,
+  bottomline=false,
+  skipabove=-6ex,
+  leftmargin=-10,
+rightmargin=-10}
+
+\declaretheorem[style=mystyle,title=Solution,numbered=no]{solution}
+\mdfdefinestyle{myframedstyle}{%
+  topline=false,
+  rightline=false,
+  leftline=false,
+  bottomline=false,
+  skipabove=-6ex,
+  leftmargin=-10,
+rightmargin=-10}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% End of the Solution environment %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Homework info.
+\newcommand{\posted}{\text{Sep. 10, 2018}}       			%%% FILL IN POST DATE HERE
+\newcommand{\due}{\text{Sep. 17, 2018}} 			%%% FILL IN Due DATE HERE
+\newcommand{\hwno}{\text{3}} 		           			%%% FILL IN LECTURE NUMBER HERE
+
+\newcommand{\rank}[1]{ \textbf{rank}  (#1)  }
+
+%%%%%%%%%%%%%%%%%%%%
+%% Put your information here %%
+%%%%%%%%%%%%%%%%%%%
+\newcommand{\name}{\text{}}  	          			%%% FILL IN YOUR NAME HERE
+\newcommand{\id}{\text{}}		       			%%% FILL IN YOUR ID HERE
+%%%%%%%%%%%%%%%%%%%%
+%% End of the student's info %%
+%%%%%%%%%%%%%%%%%%%
+
+\lhead{
+  \textbf{\name}
+}
+\rhead{
+  \textbf{\id}
+}
+\chead{\textbf{
+    Problem
+}}
+
+
+\begin{document}
+\vspace*{-4\baselineskip}
+\thispagestyle{empty}
+
+
+\begin{center}
+  {\bf\large Problem}\\
+\end{center}
+
+%\noindent
+%Lecturer: Jie Wang  			 %%% FILL IN LECTURER HERE
+%\hfill
+%Homework \hwno
+%\\
+%Posted: \posted
+%\hfill
+%Due: \due
+%\\
+%Name: \hspace{100mm}
+%\hfill
+%ID: \id
+%\hfill
+
+\noindent
+\rule{\textwidth}{2pt}
+
+\medskip
+
+Please select one out of the three problems to solve.
+
+\begin{problem}[Second-order sufficient optimality conditions]
+  Suppose that $f:\mathbb{R}^n\rightarrow\mathbb{R}$ is twice differentiable at $\bm{x}$. Please show that $\bm{x}$ is a strict local minimum if $\nabla f(\bm{x})=0$ and the Hessian matrix $\bm{H}(\bm{x})$ is positive definite.
+\end{problem}
+
+\begin{problem}[Low-rank approximation]
+  Please find the solution to the problem as follows
+  \begin{align*}
+    \min_{X\in\mathbb{R}^{m\times n}}\{\|A-X\|_F:\rank{X}\leq K\},
+  \end{align*}
+  where $A\in \mathbb{R}^{m\times n}$ and $\rank{A}=r$.
+\end{problem}
+
+\begin{problem}[Random walk on $\mathbb{Z}$]
+  Consider the random walk $ X=\{X_n\}_{n\geq 0} $ on $ \mathbb{Z} $ that starts at $ X_0=0 $. The particle moves with probability $ p $ one unit to the right and with probability $ q=1-p $ one unit to the left at each transition. Please show that the state $ 0 $ is recurrent if and only if $ p=q=1/2 $, i.e.,
+  \begin{align*}
+    \sum_{n=1}^{\infty} \mathbb{P}(X_n=0, X_k \neq 0, k = 1,\dots,n-1|X_0=0)=1\, \Leftrightarrow\, p=q=1/2.
+  \end{align*}
+\end{problem}
+
+\begin{exercise}[Second-order sufficient optimality conditions]
+
+  We have
+  \begin{align}
+    \nabla f(\bm{x}^0) = 0
+  \end{align}
+
+  and
+  \begin{align}
+    \bm{t}^\mathsf{T}\nabla^2f(\bm{\xi})\bm{t} > 0, \forall
+    \bm{t} \neq \bm{0}
+  \end{align}
+
+  aka $\nabla^2f(\bm{\xi})$ is a positive-definite matrix.
+
+  So,
+  \begin{align}
+    f(\bm{x}) = & f(\bm{x}^0) + \nabla{f(\bm{x})}^\mathsf{T}
+    \Delta \bm{x} + \Delta \bm{x}^\mathsf{T}\nabla^2f(\bm{\xi})\Delta \bm{x}\\
+    > & f(\bm{x}^0)
+  \end{align}
+
+  It means
+
+  \begin{align}
+    \exists\delta, \mathrm{s.t.}f(\bm{x}) > & f(\bm{x}^0), \forall \bm{x} \in U^\circ(\bm{x}^0, \delta)
+  \end{align}
+
+  QED.
+\end{exercise}
+
+\end{document}
